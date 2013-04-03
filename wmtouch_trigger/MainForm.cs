@@ -31,6 +31,17 @@ namespace wmtouch_trigger
             touchHandler.TouchDown += new EventHandler<TouchEventArgs>(touchHandler_TouchDown);
             touchHandler.TouchMove += new EventHandler<TouchEventArgs>(touchHandler_TouchMove);
             touchHandler.TouchUp += new EventHandler<TouchEventArgs>(touchHandler_TouchUp);
+            // load settings
+            textBox1.Text = Properties.Settings.Default.CommandLine;
+            cbActivateOnce.Checked = Properties.Settings.Default.ActivateOncePerResume;
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // save settings
+            Properties.Settings.Default.CommandLine = textBox1.Text;
+            Properties.Settings.Default.ActivateOncePerResume = cbActivateOnce.Checked;
+            Properties.Settings.Default.Save();
         }
 
         void SystemEvents_PowerModeChanged(object sender, PowerModeChangedEventArgs e)
