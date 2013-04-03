@@ -76,5 +76,18 @@ namespace wmtouch_trigger
             {
             }
         }
+
+        private void textBox1_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            foreach (string file in files)
+                textBox1.Text = file;
+        }
+
+        private void textBox1_DragEnter(object sender, DragEventArgs e)
+        {
+            // does not trigger if app is admin and explorer is not =(
+            e.Effect = DragDropEffects.Move;
+        }
     }
 }
