@@ -14,6 +14,7 @@ namespace wmtouch_trigger
 {
     public partial class MainForm : Form
     {
+        int activateSinceResumeCount = 0;
         int activateCount = 0;
         TouchHandler touchHandler;
 
@@ -51,7 +52,7 @@ namespace wmtouch_trigger
                 case PowerModes.Suspend:
                     break;
                 case PowerModes.Resume:
-                    activateCount = 0;
+                    activateSinceResumeCount = 0;
                     break;
             }
         }
@@ -76,8 +77,9 @@ namespace wmtouch_trigger
 
         private void ActivateCommand()
         {
-            if (cbActivateOnce.Checked && activateCount > 0)
+            if (cbActivateOnce.Checked && activateSinceResumeCount > 0)
                 return;
+            activateSinceResumeCount++;
             activateCount++;
             try
             {
@@ -86,6 +88,7 @@ namespace wmtouch_trigger
             catch (Exception e)
             {
             }
+            Text = string.Format("wmtouch trigger ({0})", activateCount);
         }
 
         private void textBox1_DragDrop(object sender, DragEventArgs e)
