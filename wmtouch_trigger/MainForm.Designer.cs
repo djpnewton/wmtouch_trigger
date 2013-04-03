@@ -32,6 +32,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnActivate = new System.Windows.Forms.Button();
             this.cbActivateOnce = new System.Windows.Forms.CheckBox();
+            this.numActivationHoldoff = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numActivationHoldoff)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -77,11 +80,34 @@
             this.cbActivateOnce.Text = "Only activate once per resume";
             this.cbActivateOnce.UseVisualStyleBackColor = true;
             // 
+            // numActivationHoldoff
+            // 
+            this.numActivationHoldoff.Location = new System.Drawing.Point(12, 117);
+            this.numActivationHoldoff.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numActivationHoldoff.Name = "numActivationHoldoff";
+            this.numActivationHoldoff.Size = new System.Drawing.Size(75, 22);
+            this.numActivationHoldoff.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(93, 119);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 17);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Activation Holdoff (ms)";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 255);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.numActivationHoldoff);
             this.Controls.Add(this.cbActivateOnce);
             this.Controls.Add(this.btnActivate);
             this.Controls.Add(this.textBox1);
@@ -90,6 +116,7 @@
             this.Text = "wmtouch trigger";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numActivationHoldoff)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,6 +128,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnActivate;
         private System.Windows.Forms.CheckBox cbActivateOnce;
+        private System.Windows.Forms.NumericUpDown numActivationHoldoff;
+        private System.Windows.Forms.Label label2;
     }
 }
 

@@ -46,5 +46,17 @@ namespace wmtouch_trigger.Properties {
                 this["ActivateOncePerResume"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ActivationHoldoff {
+            get {
+                return ((int)(this["ActivationHoldoff"]));
+            }
+            set {
+                this["ActivationHoldoff"] = value;
+            }
+        }
     }
 }

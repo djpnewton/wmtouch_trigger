@@ -16,6 +16,7 @@ namespace wmtouch_trigger
     {
         int activateSinceResumeCount = 0;
         int activateCount = 0;
+        ulong activationTime = 0;
         TouchHandler touchHandler;
 
         public MainForm()
@@ -35,6 +36,7 @@ namespace wmtouch_trigger
             // load settings
             textBox1.Text = Properties.Settings.Default.CommandLine;
             cbActivateOnce.Checked = Properties.Settings.Default.ActivateOncePerResume;
+            numActivationHoldoff.Value = Properties.Settings.Default.ActivationHoldoff;
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -42,6 +44,7 @@ namespace wmtouch_trigger
             // save settings
             Properties.Settings.Default.CommandLine = textBox1.Text;
             Properties.Settings.Default.ActivateOncePerResume = cbActivateOnce.Checked;
+            Properties.Settings.Default.ActivationHoldoff = (int)numActivationHoldoff.Value;
             Properties.Settings.Default.Save();
         }
 
@@ -77,10 +80,17 @@ namespace wmtouch_trigger
 
         private void ActivateCommand()
         {
+            ulong tickCount = (ulong)Environment.TickCount; // Environment.TickCount can be negative after 25 days
             if (cbActivateOnce.Checked && activateSinceResumeCount > 0)
                 return;
+            if (numActivationHoldoff.Value > 0)
+            {
+                if (tickCount - activationTime < numActivationHoldoff.Value)
+                    return;
+            }
             activateSinceResumeCount++;
             activateCount++;
+            activationTime = tickCount;
             try
             {
                 System.Diagnostics.Process.Start(textBox1.Text);
