@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnActivate = new System.Windows.Forms.Button();
@@ -35,9 +36,26 @@
             this.numActivationHoldoff = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbToAddr = new System.Windows.Forms.TextBox();
+            this.cbUseSSL = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.tbSMTPHost = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.numTimeout = new System.Windows.Forms.NumericUpDown();
             this.cbDockBottom = new System.Windows.Forms.CheckBox();
+            this.tmrEmail = new System.Windows.Forms.Timer(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnStopTimer = new System.Windows.Forms.Button();
+            this.tmrEmailTime = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numActivationHoldoff)).BeginInit();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTimeout)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +74,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(18, 35);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 22);
+            this.textBox1.Size = new System.Drawing.Size(366, 22);
             this.textBox1.TabIndex = 1;
             this.textBox1.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBox1_DragDrop);
             this.textBox1.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBox1_DragEnter);
@@ -107,6 +125,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.cbDockBottom);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
@@ -117,8 +136,122 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(282, 180);
+            this.panel1.Size = new System.Drawing.Size(398, 381);
             this.panel1.TabIndex = 6;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnStopTimer);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.tbToAddr);
+            this.groupBox1.Controls.Add(this.cbUseSSL);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.tbPassword);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.tbUsername);
+            this.groupBox1.Controls.Add(this.tbSMTPHost);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.numTimeout);
+            this.groupBox1.Location = new System.Drawing.Point(11, 178);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(373, 189);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Email on activation timeout";
+            // 
+            // tbToAddr
+            // 
+            this.tbToAddr.Location = new System.Drawing.Point(6, 160);
+            this.tbToAddr.Name = "tbToAddr";
+            this.tbToAddr.Size = new System.Drawing.Size(100, 22);
+            this.tbToAddr.TabIndex = 17;
+            // 
+            // cbUseSSL
+            // 
+            this.cbUseSSL.AutoSize = true;
+            this.cbUseSSL.Location = new System.Drawing.Point(6, 133);
+            this.cbUseSSL.Name = "cbUseSSL";
+            this.cbUseSSL.Size = new System.Drawing.Size(85, 21);
+            this.cbUseSSL.TabIndex = 16;
+            this.cbUseSSL.Text = "Use SSL";
+            this.cbUseSSL.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(113, 108);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(69, 17);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Password";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(113, 80);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 17);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Username";
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.Location = new System.Drawing.Point(7, 105);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(100, 22);
+            this.tbPassword.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(113, 52);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 17);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "SMTP host";
+            // 
+            // tbUsername
+            // 
+            this.tbUsername.Location = new System.Drawing.Point(7, 77);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(100, 22);
+            this.tbUsername.TabIndex = 11;
+            // 
+            // tbSMTPHost
+            // 
+            this.tbSMTPHost.Location = new System.Drawing.Point(7, 49);
+            this.tbSMTPHost.Name = "tbSMTPHost";
+            this.tbSMTPHost.Size = new System.Drawing.Size(100, 22);
+            this.tbSMTPHost.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(88, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(95, 17);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Timeout (sec)";
+            // 
+            // numTimeout
+            // 
+            this.numTimeout.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numTimeout.Location = new System.Drawing.Point(7, 21);
+            this.numTimeout.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numTimeout.Name = "numTimeout";
+            this.numTimeout.Size = new System.Drawing.Size(75, 22);
+            this.numTimeout.TabIndex = 5;
             // 
             // cbDockBottom
             // 
@@ -131,11 +264,41 @@
             this.cbDockBottom.UseVisualStyleBackColor = true;
             this.cbDockBottom.CheckedChanged += new System.EventHandler(this.cbDockBottom_CheckedChanged);
             // 
+            // tmrEmail
+            // 
+            this.tmrEmail.Tick += new System.EventHandler(this.tmrEmail_Tick);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(113, 163);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(25, 17);
+            this.label7.TabIndex = 18;
+            this.label7.Text = "To";
+            // 
+            // btnStopTimer
+            // 
+            this.btnStopTimer.Location = new System.Drawing.Point(189, 17);
+            this.btnStopTimer.Name = "btnStopTimer";
+            this.btnStopTimer.Size = new System.Drawing.Size(135, 29);
+            this.btnStopTimer.TabIndex = 19;
+            this.btnStopTimer.Text = "Stop Timer";
+            this.btnStopTimer.UseVisualStyleBackColor = true;
+            this.btnStopTimer.Visible = false;
+            this.btnStopTimer.Click += new System.EventHandler(this.btnStopTimer_Click);
+            // 
+            // tmrEmailTime
+            // 
+            this.tmrEmailTime.Enabled = true;
+            this.tmrEmailTime.Interval = 1000;
+            this.tmrEmailTime.Tick += new System.EventHandler(this.tmrEmailTime_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 255);
+            this.ClientSize = new System.Drawing.Size(398, 447);
             this.Controls.Add(this.panel1);
             this.Name = "MainForm";
             this.Text = "wmtouch trigger";
@@ -144,6 +307,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.numActivationHoldoff)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTimeout)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -158,6 +324,21 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox cbDockBottom;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox cbUseSSL;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.TextBox tbSMTPHost;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numTimeout;
+        private System.Windows.Forms.Timer tmrEmail;
+        private System.Windows.Forms.TextBox tbToAddr;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnStopTimer;
+        private System.Windows.Forms.Timer tmrEmailTime;
     }
 }
 
