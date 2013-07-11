@@ -37,6 +37,10 @@ namespace wmtouch_trigger
             textBox1.Text = Properties.Settings.Default.CommandLine;
             cbActivateOnce.Checked = Properties.Settings.Default.ActivateOncePerResume;
             numActivationHoldoff.Value = Properties.Settings.Default.ActivationHoldoff;
+            cbDockBottom.Checked = Properties.Settings.Default.DockBottom;
+            Location = new Point(Properties.Settings.Default.FormX, Properties.Settings.Default.FormY);
+            Size = new Size(Properties.Settings.Default.FormWidth, Properties.Settings.Default.FormHeight);
+            cbDockBottom_CheckedChanged(null, null);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -45,6 +49,11 @@ namespace wmtouch_trigger
             Properties.Settings.Default.CommandLine = textBox1.Text;
             Properties.Settings.Default.ActivateOncePerResume = cbActivateOnce.Checked;
             Properties.Settings.Default.ActivationHoldoff = (int)numActivationHoldoff.Value;
+            Properties.Settings.Default.DockBottom = cbDockBottom.Checked;
+            Properties.Settings.Default.FormX = Location.X;
+            Properties.Settings.Default.FormY = Location.Y;
+            Properties.Settings.Default.FormWidth = Size.Width;
+            Properties.Settings.Default.FormHeight = Size.Height;
             Properties.Settings.Default.Save();
         }
 
@@ -112,6 +121,14 @@ namespace wmtouch_trigger
         {
             // does not trigger if app is admin and explorer is not =(
             e.Effect = DragDropEffects.Move;
+        }
+
+        private void cbDockBottom_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbDockBottom.Checked)
+                panel1.Dock = DockStyle.Bottom;
+            else
+                panel1.Dock = DockStyle.Top;
         }
     }
 }

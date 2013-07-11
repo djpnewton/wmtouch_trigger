@@ -34,13 +34,16 @@
             this.cbActivateOnce = new System.Windows.Forms.CheckBox();
             this.numActivationHoldoff = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.cbDockBottom = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numActivationHoldoff)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(150, 17);
             this.label1.TabIndex = 0;
@@ -51,16 +54,16 @@
             this.textBox1.AllowDrop = true;
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(15, 29);
+            this.textBox1.Location = new System.Drawing.Point(18, 35);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(255, 22);
+            this.textBox1.Size = new System.Drawing.Size(250, 22);
             this.textBox1.TabIndex = 1;
             this.textBox1.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBox1_DragDrop);
             this.textBox1.DragEnter += new System.Windows.Forms.DragEventHandler(this.textBox1_DragEnter);
             // 
             // btnActivate
             // 
-            this.btnActivate.Location = new System.Drawing.Point(12, 57);
+            this.btnActivate.Location = new System.Drawing.Point(15, 63);
             this.btnActivate.Name = "btnActivate";
             this.btnActivate.Size = new System.Drawing.Size(75, 27);
             this.btnActivate.TabIndex = 2;
@@ -73,7 +76,7 @@
             this.cbActivateOnce.AutoSize = true;
             this.cbActivateOnce.Checked = true;
             this.cbActivateOnce.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbActivateOnce.Location = new System.Drawing.Point(12, 90);
+            this.cbActivateOnce.Location = new System.Drawing.Point(15, 96);
             this.cbActivateOnce.Name = "cbActivateOnce";
             this.cbActivateOnce.Size = new System.Drawing.Size(223, 21);
             this.cbActivateOnce.TabIndex = 3;
@@ -82,7 +85,7 @@
             // 
             // numActivationHoldoff
             // 
-            this.numActivationHoldoff.Location = new System.Drawing.Point(12, 117);
+            this.numActivationHoldoff.Location = new System.Drawing.Point(15, 123);
             this.numActivationHoldoff.Maximum = new decimal(new int[] {
             100000000,
             0,
@@ -95,30 +98,53 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 119);
+            this.label2.Location = new System.Drawing.Point(96, 125);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(150, 17);
             this.label2.TabIndex = 5;
             this.label2.Text = "Activation Holdoff (ms)";
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.cbDockBottom);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.numActivationHoldoff);
+            this.panel1.Controls.Add(this.btnActivate);
+            this.panel1.Controls.Add(this.cbActivateOnce);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(282, 180);
+            this.panel1.TabIndex = 6;
+            // 
+            // cbDockBottom
+            // 
+            this.cbDockBottom.AutoSize = true;
+            this.cbDockBottom.Location = new System.Drawing.Point(12, 151);
+            this.cbDockBottom.Name = "cbDockBottom";
+            this.cbDockBottom.Size = new System.Drawing.Size(143, 21);
+            this.cbDockBottom.TabIndex = 6;
+            this.cbDockBottom.Text = "Dock UI at Bottom";
+            this.cbDockBottom.UseVisualStyleBackColor = true;
+            this.cbDockBottom.CheckedChanged += new System.EventHandler(this.cbDockBottom_CheckedChanged);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 255);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.numActivationHoldoff);
-            this.Controls.Add(this.cbActivateOnce);
-            this.Controls.Add(this.btnActivate);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.Name = "MainForm";
             this.Text = "wmtouch trigger";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numActivationHoldoff)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -130,6 +156,8 @@
         private System.Windows.Forms.CheckBox cbActivateOnce;
         private System.Windows.Forms.NumericUpDown numActivationHoldoff;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox cbDockBottom;
     }
 }
 

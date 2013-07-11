@@ -58,5 +58,65 @@ namespace wmtouch_trigger.Properties {
                 this["ActivationHoldoff"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DockBottom {
+            get {
+                return ((bool)(this["DockBottom"]));
+            }
+            set {
+                this["DockBottom"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int FormX {
+            get {
+                return ((int)(this["FormX"]));
+            }
+            set {
+                this["FormX"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int FormY {
+            get {
+                return ((int)(this["FormY"]));
+            }
+            set {
+                this["FormY"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("400")]
+        public int FormWidth {
+            get {
+                return ((int)(this["FormWidth"]));
+            }
+            set {
+                this["FormWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("300")]
+        public int FormHeight {
+            get {
+                return ((int)(this["FormHeight"]));
+            }
+            set {
+                this["FormHeight"] = value;
+            }
+        }
     }
 }
