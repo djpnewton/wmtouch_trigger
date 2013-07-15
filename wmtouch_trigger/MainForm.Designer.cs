@@ -52,6 +52,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnStopTimer = new System.Windows.Forms.Button();
             this.tmrEmailTime = new System.Windows.Forms.Timer(this.components);
+            this.btnResetActivateCount = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numActivationHoldoff)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -125,6 +126,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnResetActivateCount);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.cbDockBottom);
             this.panel1.Controls.Add(this.label1);
@@ -294,6 +296,16 @@
             this.tmrEmailTime.Interval = 1000;
             this.tmrEmailTime.Tick += new System.EventHandler(this.tmrEmailTime_Tick);
             // 
+            // btnResetActivateCount
+            // 
+            this.btnResetActivateCount.Location = new System.Drawing.Point(96, 63);
+            this.btnResetActivateCount.Name = "btnResetActivateCount";
+            this.btnResetActivateCount.Size = new System.Drawing.Size(172, 27);
+            this.btnResetActivateCount.TabIndex = 9;
+            this.btnResetActivateCount.Text = "Reset Activation Count";
+            this.btnResetActivateCount.UseVisualStyleBackColor = true;
+            this.btnResetActivateCount.Click += new System.EventHandler(this.btnResetActivateCount_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -339,6 +351,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnStopTimer;
         private System.Windows.Forms.Timer tmrEmailTime;
+        private System.Windows.Forms.Button btnResetActivateCount;
     }
 }
 

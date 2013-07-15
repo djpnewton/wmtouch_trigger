@@ -102,6 +102,12 @@ namespace wmtouch_trigger
             ActivateCommand();
         }
 
+        private void btnResetActivateCount_Click(object sender, EventArgs e)
+        {
+            activateCount = 0;
+            UpdateTitleText();
+        }
+
         private void ActivateCommand()
         {
             ulong tickCount = (ulong)Environment.TickCount; // Environment.TickCount can be negative after 25 days
@@ -122,7 +128,7 @@ namespace wmtouch_trigger
             catch (Exception e)
             {
             }
-            Text = string.Format("wmtouch trigger ({0})", activateCount);
+            UpdateTitleText();
             // start timer
             if (numTimeout.Value != 0)
             {
@@ -132,6 +138,11 @@ namespace wmtouch_trigger
                 tmrEmailTime_Tick(null, null);
                 btnStopTimer.Visible = true;
             }
+        }
+
+        private void UpdateTitleText()
+        {
+            Text = string.Format("wmtouch trigger ({0})", activateCount);
         }
 
         private void textBox1_DragDrop(object sender, DragEventArgs e)
